@@ -10,16 +10,15 @@ import javax.inject.Inject
 // JobInfoRepository.kt 파일을 참고.
 interface SomeInfoRepository {
 
-    suspend fun getSomeInfoList(request: SomeInfoRequest): Result<SomeInfoResponse, Exception>
-
+    suspend fun getSomeInfoList(pageNum : Int): Result<SomeInfoResponse, Exception>
 }
 
 class SomeInfoRepositoryImpl @Inject constructor(
     private val service: SomeInfoService,
 ): SomeInfoRepository {
-    override suspend fun getSomeInfoList(request: SomeInfoRequest): Result<SomeInfoResponse, Exception> {
+    override suspend fun getSomeInfoList(pageNum : Int): Result<SomeInfoResponse, Exception> {
         return request(
-            service.getSomeInfoList(request)
+            service.getSomeInfoList(pageNum)
         ) { it }
     }
 

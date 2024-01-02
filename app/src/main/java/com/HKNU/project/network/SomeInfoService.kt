@@ -2,9 +2,11 @@ package com.HKNU.project.network
 
 import com.HKNU.project.model.SomeInfoRequest
 import com.HKNU.project.model.SomeInfoResponse
+import com.HKNU.project.extensions.empty
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 import javax.inject.Inject
 
@@ -17,9 +19,9 @@ interface SomeInfoService {
         private const val REQUEST_GET_LIST_URL = "/some/info/list" //rest api url 예시..
     }
 
-    @POST(REQUEST_GET_LIST_URL)
+    @GET(REQUEST_GET_LIST_URL)
     suspend fun getSomeInfoList(
-        @Body request: SomeInfoRequest,
+        @Body request: Int,
     ): Response<SomeInfoResponse>
 }
 
@@ -28,7 +30,7 @@ class SomeInfoServiceImpl @Inject constructor(retrofit: Retrofit) : SomeInfoServ
         retrofit.create(SomeInfoService::class.java)
     }
 
-    override suspend fun getSomeInfoList(request: SomeInfoRequest): Response<SomeInfoResponse> {
+    override suspend fun getSomeInfoList(request: Int): Response<SomeInfoResponse> {
         return api.getSomeInfoList(request)
     }
 }

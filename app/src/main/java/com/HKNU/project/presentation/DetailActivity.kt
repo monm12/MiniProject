@@ -59,7 +59,7 @@ class DetailActivity @Inject constructor() : AppCompatActivity() {
 
     //Todo 데이터를 UI 와 연결하세요.
     private fun setDataToUI() {
-        binding.tvSample.text = someInfoDetail?.someFirstInfo
+        binding.tvSample.text = someInfoDetail?.blocksUrl
     }
 }
 

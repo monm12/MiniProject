@@ -53,7 +53,7 @@ class SomeInfoListAdapter : ListAdapter<SomeInfoDetail, RecyclerView.ViewHolder>
             }
 
             //Todo 리스트 아이템의 view 에 data 를 셋팅하는 예시임. 실제 구현 시에는 삭제.
-            binding.tvSample.text = data.someFirstInfo
+            binding.tvSample.text = data.blocksUrl
 
         }
     }

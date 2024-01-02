@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Todo 리스트뷰에 표시되는 아이템 1개의 레이아웃을 구현 하세요.-->
+
+    <!--Todo 아래 텍스트뷰는 리스트어덥터에서 뷰에 데이터를 셋팅하는 예시를 보여주기 위한 샘플입니다. 실제 구현 시에는 삭제하세요.-->
+    <TextView
+        android:id="@+id/tvSample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

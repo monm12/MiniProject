@@ -5,54 +5,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".presentation.MainActivity">
 
+
+    <!--Todo 구현 하려는 서비스 기획에 맞춰 메인 화면을 구성 하세요.-->
+
+    <!--Todo 아래 뷰들은 MainActivit 에서 타이틀 표시와 리스트 노출, 버튼 이벤트 처리 예시를 보여주기 위한 샘플입니다. 실제 구현 시에는 삭제 혹은 수정하여 사용 하세요.-->
     <TextView
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="headerTitle"
-        android:textSize="30sp"
+        android:id="@+id/tvSample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="샘플 타이틀"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvListSample"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:fadingEdgeLength="15dp"
+        android:requiresFadingEdge="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/btnSample"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteY="10dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:weightSum="10">
-            <EditText
-                android:id="@+id/edit"
-                android:layout_width="300dp"
-                android:layout_height="match_parent"
-                android:hint="enter text to search"/>
-            <Button
-                android:id="@+id/btn"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:text="검색"
-                android:textSize="20sp"
-                android:onClick="mOnClick"
-                />
+        app:layout_constraintTop_toBottomOf="@id/tvSample" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    <!--조회버튼.-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSample"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="샘플 버튼"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-
-            />
-
-
-
-        </LinearLayout>
 
     <!--
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    -->
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="headerTitle"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteY="10dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+                <EditText
+                    android:id="@+id/edit"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:hint="enter text to search"/>
+                <Button
+                    android:id="@+id/btn"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="검색"
+                    android:textSize="20sp"
+                    android:onClick="mOnClick"
+                    />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+
+            </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        -->
 
 </LinearLayout>

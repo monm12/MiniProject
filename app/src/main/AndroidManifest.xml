@@ -16,7 +16,8 @@
         android:theme="@style/Theme.CourseApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.SplashActivity"
+            android:launchMode="singleInstance"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +25,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity 
+            android:name=".presentation.MainActivity"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".presentation.DetailActivity"
+            />
+        
+        
     </application>
 
 </manifest>

@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.HKNU.project"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.HKNU.project"
@@ -34,7 +34,6 @@ android {
         buildConfig = true
         viewBinding = true
         dataBinding = true
-        compose = true
     }
     dataBinding{
         enable = true

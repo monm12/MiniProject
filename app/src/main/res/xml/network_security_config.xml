@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true"/><!--Comm 모든 도메인에 대해서 http 허용.-->
+</network-security-config>

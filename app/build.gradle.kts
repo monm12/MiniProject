@@ -19,15 +19,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildFeatures {
-        buildConfig = true
-        viewBinding = true
-        dataBinding = true
-        compose = true
-    }
-    dataBinding{
-        enable = true
-    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -37,6 +29,17 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+        dataBinding = true
+        compose = true
+    }
+    dataBinding{
+        enable = true
+    }
+
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -86,6 +89,5 @@ dependencies {
     androidTestImplementation("com.google.dagger:hilt-android:2.48")
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.48")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48")
-    implementation ("com.google.code.gson:gson:2.6.2")
 
 }

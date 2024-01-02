@@ -7,7 +7,7 @@ import android.net.ConnectivityManager
 
 //Todo Kotlin 의 확장 기능을 정의한 파일. 필요한 기능들을 확장하여 사용.
 
-fun String.Companion.appName() ="Hankyong"
+fun String.Companion.appName() ="HKNU"
 fun String.Companion.empty() = ""
 
 fun Context.isNetworkEnable(): Boolean {

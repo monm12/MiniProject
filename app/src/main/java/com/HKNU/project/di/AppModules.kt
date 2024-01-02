@@ -1,12 +1,12 @@
 package com.HKNU.project.di
 
-import androidx.multidex.BuildConfig
 import com.HKNU.project.MyApplication.Companion.gson
 import com.HKNU.project.common.AppConstant
 import com.HKNU.project.network.SomeInfoRepository
 import com.HKNU.project.network.SomeInfoRepositoryImpl
 import com.HKNU.project.network.SomeInfoService
 import com.HKNU.project.network.SomeInfoServiceImpl
+import com.HKNU.project.BuildConfig
 
 import dagger.Binds
 import dagger.Module

@@ -1,7 +1,6 @@
 package com.HKNU.project.common
 
-import androidx.multidex.BuildConfig
-
+import com.HKNU.project.BuildConfig
 
 object AppConstant {
 

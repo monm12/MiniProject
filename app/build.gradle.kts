@@ -14,15 +14,19 @@ android {
         applicationId = "com.HKNU.project"
         minSdk = 24
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 100
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
         buildConfig = true
         viewBinding = true
-//        dataBinding = true
+        dataBinding = true
+        compose = true
+    }
+    dataBinding{
+        enable = true
     }
     buildTypes {
         release {
@@ -82,5 +86,6 @@ dependencies {
     androidTestImplementation("com.google.dagger:hilt-android:2.48")
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.48")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48")
+    implementation ("com.google.code.gson:gson:2.6.2")
 
 }

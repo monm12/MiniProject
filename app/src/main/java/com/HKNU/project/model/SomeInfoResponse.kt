@@ -6,13 +6,15 @@ import kotlinx.parcelize.Parcelize
 
 //Todo 사용하려는 공공 api 에 맞춰 수정하여 사용.
 // JobInfoResponse.kt 파일을 참고.
+
+// CourseInfo.kt
 data class SomeInfoResponse(
 
     //Todo 예시 응답 값..
-    @SerializedName("list_total_count")
-    val listTotalCount: Int,
+    @SerializedName("count")
+    val count: Int,
 
-    @SerializedName("list")
+    @SerializedName("results")
     val someInfoDetailList: List<SomeInfoDetail>,
 
     //Todo 여기에 데이터들을 추가..

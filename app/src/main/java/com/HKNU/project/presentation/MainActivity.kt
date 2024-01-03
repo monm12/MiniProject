@@ -92,7 +92,7 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
     private fun executeQuery() {
         //Todo 공공 api 요청에 필요한 인자 중 화면을 통해 사용자로부터 받은 데이터가 있으면
         // 아래 함수 호출 시 인자로 넘겨주어 처리한다.
-        viewModel.requestSomeInfo( /*여기에 인자를 넘김.*/ )
+        viewModel.requestSomeInfo(pageNum = 1)
     }
 
 }

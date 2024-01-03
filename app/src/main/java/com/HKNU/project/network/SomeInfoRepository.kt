@@ -9,7 +9,6 @@ import javax.inject.Inject
 //Todo 사용하려는 공공 api 에 맞춰 수정하여 사용.
 // JobInfoRepository.kt 파일을 참고.
 interface SomeInfoRepository {
-
     suspend fun getSomeInfoList(pageNum : Int): Result<SomeInfoResponse, Exception>
 }
 

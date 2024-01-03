@@ -34,6 +34,7 @@ class MainViewModel @Inject constructor() : ViewModel() {
 
     fun requestSomeInfo(
         //Todo 화면에서 전달 받아야 하는 공공 api 요청에 핅요한 값이 있으면 여기를 통해 전달.
+        pageNum : Int
     ) {
         val tempList = mutableListOf<SomeInfoDetail>()
         someInfoList.value?.let {
@@ -44,11 +45,13 @@ class MainViewModel @Inject constructor() : ViewModel() {
             _isLoading.value = true //통신 중 프로그레스 다이얼로그 처리.
             try {
                 //Todo 공공 api 요청 객체.
-                val someInfoRequest = SomeInfoRequest(
+                val someInfoRequest  = SomeInfoRequest(
                     //Todo 공공 api 요청에 필요한 값들을 설정 해 줘야함.
+                    pageNum = pageNum
+
                 )
                 //Todo 공공 api 요청.
-                val result = someInfoRepository.getSomeInfoList(someInfoRequest)
+                val result = someInfoRepository.getSomeInfoList(1)
                 _isLoading.value = false //통신 중 프로그레스 다이얼로그 처리.
 
                 result.onSuccess {

@@ -11,6 +11,7 @@ data class SomeInfoRequest(
     val authKey: String = AppConstant.API_AUTH_KEY, //앱에서 사용 하려는 변수명.
 
     //요청 변수 추가...
+
     // 필수
     @SerializedName("Page")
     val pageNum : Int = 1,

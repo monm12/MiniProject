@@ -3,21 +3,82 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+   >
 
-    <!--Todo 상세화면을 구현하세요.-->
-
-    <!--Todo 아래 텍스트뷰는 예제입니다. 실제 구현 시 삭제하세요.-->
-    <TextView
-        android:id="@+id/tvSample"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageView
+        android:id="@+id/detailLogoImage"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Sample" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/k_mooc"/>
+    <ImageView
+        android:id="@+id/detailSumImage"
+        app:layout_constraintTop_toBottomOf="@id/detailLogoImage"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        app:layout_constraintStart_toStartOf="@id/detailSumImage"
+        app:layout_constraintTop_toTopOf="@id/detailSumImage"
+        app:layout_constraintEnd_toEndOf="@id/detailSumImage"
+        app:layout_constraintBottom_toBottomOf="@id/detailSumImage"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="40sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/detailExName"
+        app:layout_constraintTop_toBottomOf="@id/detailSumImage"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Exname"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/detailEx"
+        app:layout_constraintTop_toBottomOf="@id/detailExName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"/>
+    <Button
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/jumpTo"
+        android:textSize="20sp"
+        android:background="@color/blue"
+        android:padding="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

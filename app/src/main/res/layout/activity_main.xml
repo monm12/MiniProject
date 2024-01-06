@@ -5,89 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.MainActivity">
+    tools:context=".presentation.MainActivity"
+    android:padding="10dp">
 
-
-    <!--Todo 구현 하려는 서비스 기획에 맞춰 메인 화면을 구성 하세요.-->
-
-    <!--Todo 아래 뷰들은 MainActivit 에서 타이틀 표시와 리스트 노출, 버튼 이벤트 처리 예시를 보여주기 위한 샘플입니다. 실제 구현 시에는 삭제 혹은 수정하여 사용 하세요.-->
-    <TextView
-        android:id="@+id/tvSample"
+    <ImageView
+        android:id="@+id/logoMainImage"
+        android:layout_marginTop="150dp"
         android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:src="@drawable/k_mooc"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="샘플 타이틀"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvListSample"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:fadingEdgeLength="15dp"
-        android:requiresFadingEdge="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/btnSample"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSample" />
-
-    <!--조회버튼.-->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSample"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="샘플 버튼"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <!--
-        <TextView
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="headerTitle"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
+        <EditText
+            android:id="@+id/mainInPut"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteY="10dp" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:weightSum="10">
-                <EditText
-                    android:id="@+id/edit"
-                    android:layout_width="300dp"
-                    android:layout_height="match_parent"
-                    android:hint="enter text to search"/>
-                <Button
-                    android:id="@+id/btn"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:text="검색"
-                    android:textSize="20sp"
-                    android:onClick="mOnClick"
-                    />
+            app:layout_constraintEnd_toStartOf="@id/mainReserchButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/reserch"
+            android:textSize="15dp"
+            />
+        <Button
+            android:id="@+id/mainReserchButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reserchBtn"
+            android:background="@drawable/btn_style"
+            />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-
-
-
-            </LinearLayout>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

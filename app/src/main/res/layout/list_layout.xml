@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/sumNail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@color/black"
+        />
+    <TextView
+        android:id="@+id/listTitle"
+        app:layout_constraintStart_toEndOf="@id/sumNail"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="270dp"
+        android:maxHeight="30dp"
+        android:textSize="20sp"
+        android:text="제목"/>
+
+    <TextView
+        android:id="@+id/listEx"
+        app:layout_constraintStart_toEndOf="@id/sumNail"
+        app:layout_constraintTop_toBottomOf="@id/listTitle"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:maxWidth="270dp"
+        android:maxHeight="40dp"
+        android:textSize="12sp"
+        android:text="강좌소개"/>
+    <TextView
+        android:id="@+id/listTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/sumNail"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:text="강좌 운영 기간"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

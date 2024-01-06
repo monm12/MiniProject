@@ -18,10 +18,10 @@ import javax.inject.Inject
 interface SomeInfoService {
 
     companion object {
-        private const val REQUEST_GET_LIST_URL = "/some/info/list" //rest api url 예시..
+        private const val REQUEST_GET_LIST_URL = "http://apis.data.go.kr/B552881/kmooc/" //rest api url 예시..
     }
 
-    @GET("/${AppConstant.API_AUTH_KEY}/json/GetSomeInfo/{pageNum} ")
+    @GET("/$REQUEST_GET_LIST_URL/{pageNum} ")
     suspend fun getSomeInfoList(
         //@Body request: Int,
         @Path("pageNum") pageNum : Int,

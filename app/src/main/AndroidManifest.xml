@@ -26,13 +26,13 @@
             </intent-filter>
         </activity>
 
-        <activity 
+        <activity
             android:name=".presentation.MainActivity"
             android:launchMode="singleInstance"/>
         <activity
             android:name=".presentation.DetailActivity"
             />
-        
+
         
     </application>
 

@@ -17,6 +17,8 @@ data class SomeInfoResponse(
     @SerializedName("results")
     val someInfoDetailList: List<SomeInfoDetail>,
 
+    val items: List<SomeInfoDetail>
+
     //Todo 여기에 데이터들을 추가..
 )
 

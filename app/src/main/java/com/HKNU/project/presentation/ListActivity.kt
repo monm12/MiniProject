@@ -6,18 +6,19 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.HKNU.project.databinding.ActivityMainBinding
+import com.HKNU.project.databinding.ActivityListBinding
+import com.HKNU.project.model.SomeInfoDetail
 import com.HKNU.project.presentation.adapters.SomeInfoListAdapter
 import com.HKNU.project.presentation.dialogs.LoadingDialog
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity @Inject constructor() : AppCompatActivity() {
+class ListActivity @Inject constructor() : AppCompatActivity() {
 
     companion object {
-        fun start(activity: Activity) {
-            Intent(activity, MainActivity::class.java).apply {
+        fun start(activity: Activity, someInfoList: SomeInfoDetail) {
+            Intent(activity, ListActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
             }.also {
@@ -27,7 +28,7 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
     }
 
     private lateinit var mContext: Context
-    private lateinit var binding: ActivityMainBinding //레이아웃. xml 파일.
+    private lateinit var binding: ActivityListBinding //레이아웃. xml 파일.
 
     private val viewModel: MainViewModel by viewModels() //viewModel.
 
@@ -37,26 +38,26 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        mContext = this@MainActivity
+        mContext = this@ListActivity
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*
-                //Todo 리스트뷰에 데이터를 담당하는 어덥터를 셋팅하고, 아이템 클릭이 발생했을 때 처리를 설정.
-                binding.rcvListSample.apply {
-                    adapter = listAdapter.apply {
-                        //Todo 리스트 아이템 클릭이 발생했을 때 동작 리스너.
-                        onItemClickListener = { someInfoList ->
-                            //ListActivity 호출
-                            ListActivity.start(this@MainActivity, someInfoList)
-                        }
-                    }
-                }*/
+
+        //Todo 리스트뷰에 데이터를 담당하는 어덥터를 셋팅하고, 아이템 클릭이 발생했을 때 처리를 설정.
+        binding.recycleList.apply {
+            adapter = listAdapter.apply {
+                //Todo 리스트 아이템 클릭이 발생했을 때 동작 리스너.
+                onItemClickListener = { someInfoDetail ->
+                    //Todo 예제에서는 DetailActivit 를 호출.
+                    DetailActivity.start(this@ListActivity, someInfoDetail)
+                }
+            }
+        }
 
         //Todo 버튼 클릭 이벤트에 처리 예시. 샘플에서는 공공 api 데이터를 요청한다.
-        binding.mainReserchButton.setOnClickListener {
+        binding.reserchButton.setOnClickListener {
             executeQuery()
         }
 
@@ -75,15 +76,15 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
                     .show(supportFragmentManager, LoadingDialog.TAG)
             }
         }
-        /*
-                //Todo 리스트의 데이터가 변경되는 것에 대한 처리.
-                viewModel.someInfoList.observe(this) { someInfoList ->
-                    listAdapter.run {
-                        submitListAndScroll(someInfoList) {
-                            binding.rcvListSample.smoothScrollToPosition(this.itemCount)
-                        }
-                    }
-                }*/
+
+        //Todo 리스트의 데이터가 변경되는 것에 대한 처리.
+        viewModel.someInfoList.observe(this) { someInfoList ->
+            listAdapter.run {
+                submitListAndScroll(someInfoList) {
+                    binding.recycleList.smoothScrollToPosition(this.itemCount)
+                }
+            }
+        }
 
         //Todo 그외 LiveData 로 구현하여 감시하고 있어야하는 데이터들에 대한 처리를 수행..
     }

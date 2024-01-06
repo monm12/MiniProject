@@ -7,6 +7,6 @@ import com.google.gson.annotations.SerializedName
 // SampleApiInfo 파일의 응답 데이터 샘플의 형태를 보면, 이 클래스의 역할이 이해가 쉬움.
 
 data class BaseResponse<out T>(
-    @SerializedName("GetSomeInfo")
+    @SerializedName("pagination")
     val info: T?
 )

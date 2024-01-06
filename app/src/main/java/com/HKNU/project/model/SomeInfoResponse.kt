@@ -11,16 +11,21 @@ import kotlinx.parcelize.Parcelize
 data class SomeInfoResponse(
 
     //Todo 예시 응답 값..
-    @SerializedName("count")
-    val count: Int,
+    @SerializedName("pagination")
+    val pageDetail: PageDetail,
 
     @SerializedName("results")
-    val someInfoDetailList: List<SomeInfoDetail>,
-
-    val items: List<SomeInfoDetail>
+    val someInfoDetailList: List<SomeInfoDetail>
 
     //Todo 여기에 데이터들을 추가..
 )
+
+data class PageDetail(
+    @SerializedName("count")
+    val count : Int,
+    @SerializedName("num_pages")
+    val numPages : Int
+        )
 
 @Parcelize
 data class SomeInfoDetail(

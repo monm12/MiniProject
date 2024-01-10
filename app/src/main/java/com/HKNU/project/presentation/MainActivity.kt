@@ -7,9 +7,11 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.HKNU.project.databinding.ActivityMainBinding
+import com.HKNU.project.model.SomeInfoDetail
 import com.HKNU.project.presentation.adapters.SomeInfoListAdapter
 import com.HKNU.project.presentation.dialogs.LoadingDialog
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -43,17 +45,16 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*
-                //Todo 리스트뷰에 데이터를 담당하는 어덥터를 셋팅하고, 아이템 클릭이 발생했을 때 처리를 설정.
-                binding.rcvListSample.apply {
-                    adapter = listAdapter.apply {
-                        //Todo 리스트 아이템 클릭이 발생했을 때 동작 리스너.
-                        onItemClickListener = { someInfoList ->
-                            //ListActivity 호출
-                            ListActivity.start(this@MainActivity, someInfoList)
-                        }
-                    }
-                }*/
+        //Todo 리스트뷰에 데이터를 담당하는 어덥터를 셋팅하고, 아이템 클릭이 발생했을 때 처리를 설정.
+//        binding.rcvListSample.apply {
+//            adapter = listAdapter.apply {
+//                //Todo 리스트 아이템 클릭이 발생했을 때 동작 리스너.
+//                onItemClickListener = { someInfoList ->
+//                    //ListActivity 호출
+//                    ListActivity.start(this@MainActivity, someInfoList)
+//                }
+//            }
+//        }
 
         //Todo 버튼 클릭 이벤트에 처리 예시. 샘플에서는 공공 api 데이터를 요청한다.
         binding.mainReserchButton.setOnClickListener {
@@ -75,15 +76,20 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
                     .show(supportFragmentManager, LoadingDialog.TAG)
             }
         }
-        /*
-                //Todo 리스트의 데이터가 변경되는 것에 대한 처리.
-                viewModel.someInfoList.observe(this) { someInfoList ->
-                    listAdapter.run {
-                        submitListAndScroll(someInfoList) {
-                            binding.rcvListSample.smoothScrollToPosition(this.itemCount)
-                        }
-                    }
-                }*/
+
+        //Todo 리스트의 데이터가 변경되는 것에 대한 처리.
+        viewModel.someInfoList.observe(this) { someInfoList ->
+            //Todo 응답으로 받은 데이터의 리스트를 확인하기 위해 로그를 찍어봤습니다. 데이터는 적절히 잘 확용하세요.
+            Timber.d("json.b listSize: ${someInfoList.size}")
+            for (item: SomeInfoDetail in someInfoList) {
+                Timber.d("json.b ${item.name}")
+            }
+//            listAdapter.run {
+//                submitListAndScroll(someInfoList) {
+//                    binding.rcvListSample.smoothScrollToPosition(this.itemCount)
+//                }
+//            }
+        }
 
         //Todo 그외 LiveData 로 구현하여 감시하고 있어야하는 데이터들에 대한 처리를 수행..
     }

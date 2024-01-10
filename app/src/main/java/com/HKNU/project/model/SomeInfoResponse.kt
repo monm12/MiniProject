@@ -22,10 +22,10 @@ data class SomeInfoResponse(
 
 data class PageDetail(
     @SerializedName("count")
-    val count : Int,
+    val count: Int,
     @SerializedName("num_pages")
-    val numPages : Int
-        )
+    val numPages: Int
+)
 
 @Parcelize
 data class SomeInfoDetail(
@@ -103,4 +103,4 @@ data class SomeInfoDetail(
     @SerializedName("hidden")
     val hidden: String,
 
-) : Parcelable
+    ) : Parcelable

@@ -30,6 +30,7 @@ class SplashActivity @Inject constructor() : AppCompatActivity() {
 
         //Todo 여기서 레이아웃에 대한 처리와 앱 구동 시 수행 되어야 하는 작업들을 정의 하세요.
         // 샘플은 3초가 기다린 후에 메인 화면으로 이동합니다.
+        moveToMain()
     }
 
     private fun moveToMain() {

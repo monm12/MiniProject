@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.HKNU.project.common.AppConstant
 import com.HKNU.project.model.SomeInfoDetail
 import com.HKNU.project.model.SomeInfoRequest
 import com.HKNU.project.network.SomeInfoRepository
@@ -45,20 +46,28 @@ class MainViewModel @Inject constructor() : ViewModel() {
         viewModelScope.launch {
             _isLoading.value = true //통신 중 프로그레스 다이얼로그 처리.
             try {
-                //Todo 공공 api 요청 객체.
-                val someInfoRequest  = SomeInfoRequest(
-                    //Todo 공공 api 요청에 필요한 값들을 설정 해 줘야함.
-                pageNum = pageNum
-
-                )
                 //Todo 공공 api 요청.
-                val result = someInfoRepository.getSomeInfoList(someInfoRequest.pageNum)
+                val result = someInfoRepository.getSomeInfoList(
+                    key = AppConstant.API_AUTH_KEY,
+                    page = pageNum,
+//                    org = "", //옵션을 사용하려면 데이터를 설정하세요.
+//                    mobile = 1, //옵션을 사용하려면 데이터를 설정하세요.
+                )
                 _isLoading.value = false //통신 중 프로그레스 다이얼로그 처리.
 
                 result.onSuccess {
                     //Todo 공공 api 요청이 성공하여 데이터를 정상적으로 수신하였을 때, 데이터를 처리.
+                    // 여기에서 데이터를 처리하여 UI 에 표시하세요. 아래는 데이터를 추출하는 예시입니다.
+                    val count = it.pageDetail.count //전체 아이템 수?
+                    val numPages = it.pageDetail.numPages //전체 페이지 수?
+                    val infoList = it.someInfoDetailList
+                    if (infoList.isNotEmpty()) { //리스트 사이즈가 0이 아니면 기존 리스트에 데이터 추가.
+                        tempList.addAll(infoList)
+                        _someInfoList.value = tempList
+                    }
                 }.onException {
                     //Todo 공공 api 요청에 실패하였을 때 사용자에게 알림 등 UI 처리 진행.
+                    Timber.e(it.toString())
                 }
 
             } catch (e: Exception) {

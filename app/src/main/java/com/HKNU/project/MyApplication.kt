@@ -11,7 +11,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import timber.log.Timber
 
 @HiltAndroidApp
-
 class MyApplication : Application(){
 
     companion object{
